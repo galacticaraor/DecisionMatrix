@@ -25,9 +25,8 @@ namespace WindowsFormApp
             DialogResult dialogResult = factors.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                tblPros.RowCount = tblPros.RowCount + 1;
                 tblPros.Controls.Add(new Label() { Text = factors.Weight.ToString() });
-                tblPros.Controls.Add(new Label() { Text = factors.Name });
+                tblPros.Controls.Add(new Label() { Text = factors.FactorName });
                 tblPros.Controls.Add(new Button() { Text = "Edit" });
                 tblPros.Controls.Add(new Button() { Text = "Delete" });
             }
@@ -44,9 +43,8 @@ namespace WindowsFormApp
             DialogResult dialogResult = factors.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                tblCons.RowCount = tblCons.RowCount + 1;
                 tblCons.Controls.Add(new Label() { Text = factors.Weight.ToString() });
-                tblCons.Controls.Add(new Label() { Text = factors.Name });
+                tblCons.Controls.Add(new Label() { Text = factors.FactorName });
                 tblCons.Controls.Add(new Button() { Text = "Edit" });
                 tblCons.Controls.Add(new Button() { Text = "Delete" });
             }

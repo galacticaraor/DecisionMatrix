@@ -50,7 +50,7 @@
             // 
             // btnAddCon
             // 
-            btnAddCon.Location = new Point(596, 271);
+            btnAddCon.Location = new Point(687, 271);
             btnAddCon.Name = "btnAddCon";
             btnAddCon.Size = new Size(75, 23);
             btnAddCon.TabIndex = 2;
@@ -80,29 +80,38 @@
             // tblPros
             // 
             tblPros.ColumnCount = 4;
-            tblPros.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8.333333F));
-            tblPros.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tblPros.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8.333333F));
-            tblPros.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8.333333F));
+            tblPros.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666641F));
+            tblPros.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.9999962F));
+            tblPros.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666641F));
+            tblPros.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666641F));
             tblPros.Location = new Point(77, 65);
             tblPros.Name = "tblPros";
             tblPros.RowCount = 1;
-            tblPros.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tblPros.Size = new Size(302, 200);
+            tblPros.RowStyles.Add(new RowStyle());
+            tblPros.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblPros.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblPros.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblPros.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblPros.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblPros.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblPros.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblPros.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblPros.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblPros.Size = new Size(327, 200);
             tblPros.TabIndex = 5;
             // 
             // tblCons
             // 
             tblCons.ColumnCount = 4;
-            tblCons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8.333333F));
-            tblCons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tblCons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8.333333F));
-            tblCons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8.333333F));
-            tblCons.Location = new Point(385, 65);
+            tblCons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tblCons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.0000038F));
+            tblCons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tblCons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tblCons.Location = new Point(428, 65);
             tblCons.Name = "tblCons";
             tblCons.RowCount = 1;
-            tblCons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tblCons.Size = new Size(308, 200);
+            tblCons.RowStyles.Add(new RowStyle());
+            tblCons.Size = new Size(334, 200);
             tblCons.TabIndex = 6;
             // 
             // label1

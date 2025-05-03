@@ -92,8 +92,17 @@
             tblResults.Location = new Point(59, 121);
             tblResults.Name = "tblResults";
             tblResults.RowCount = 1;
-            tblResults.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tblResults.Size = new Size(704, 196);
+            tblResults.RowStyles.Add(new RowStyle());
+            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblResults.Size = new Size(704, 201);
             tblResults.TabIndex = 6;
             // 
             // Form1
@@ -109,6 +118,7 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Decision Matrixes";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }

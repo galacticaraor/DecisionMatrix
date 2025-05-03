@@ -16,9 +16,9 @@ namespace WindowsFormApp
         {
             get
             {
-                if (cmbWeight.SelectedValue != null)
+                if (cmbWeight.SelectedItem != null)
                 {
-                    return int.Parse(cmbWeight.SelectedValue.ToString());
+                    return int.Parse(cmbWeight.SelectedItem.ToString());
                 }
                 else
                 {
