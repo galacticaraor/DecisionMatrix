@@ -24,8 +24,30 @@ namespace WindowsFormApp
         {
             tblResults.RowStyles.Add(new RowStyle() { SizeType = SizeType.AutoSize });
             tblResults.Controls.Add(new Label() { Text = "Factor 1" });
-            tblResults.Controls.Add(new Button() { Text = "Edit" });
-            tblResults.Controls.Add(new Button() { Text = "Delete" });
+            Button btnEdit = new Button() { Text = "Edit" };
+            btnEdit.Click += delegate
+            {
+                Details details = new Details();
+                details.ShowDialog();
+            };
+            tblResults.Controls.Add(btnEdit);
+            Button btnDelete = new Button() { Text = "Delete" };
+            btnDelete.Click += delegate
+            {
+                var confirmResult = MessageBox.Show("Are you sure to delete this item ?",
+                                     "Confirm Delete!!",
+                                     MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    MessageBox.Show("Row deleted");
+                }
+            };
+            tblResults.Controls.Add(btnDelete);
+        }
+
+        private void BtnEdit_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Form1_Load(object sender, EventArgs e)
