@@ -45,11 +45,6 @@ namespace WindowsFormApp
             tblResults.Controls.Add(btnDelete);
         }
 
-        private void BtnEdit_Click(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
