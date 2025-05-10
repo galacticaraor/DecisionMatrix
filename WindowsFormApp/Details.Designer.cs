@@ -36,11 +36,13 @@
             tblCons = new TableLayoutPanel();
             label1 = new Label();
             txtName = new TextBox();
+            lblProTotal = new Label();
+            lblConTotal = new Label();
             SuspendLayout();
             // 
             // btnAddPro
             // 
-            btnAddPro.Location = new Point(78, 271);
+            btnAddPro.Location = new Point(81, 302);
             btnAddPro.Name = "btnAddPro";
             btnAddPro.Size = new Size(75, 23);
             btnAddPro.TabIndex = 1;
@@ -50,7 +52,7 @@
             // 
             // btnAddCon
             // 
-            btnAddCon.Location = new Point(687, 271);
+            btnAddCon.Location = new Point(687, 302);
             btnAddCon.Name = "btnAddCon";
             btnAddCon.Size = new Size(75, 23);
             btnAddCon.TabIndex = 2;
@@ -60,7 +62,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(81, 317);
+            btnSave.Location = new Point(81, 386);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
             btnSave.TabIndex = 3;
@@ -70,7 +72,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(175, 317);
+            btnCancel.Location = new Point(177, 386);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 4;
@@ -132,11 +134,31 @@
             txtName.Size = new Size(240, 23);
             txtName.TabIndex = 8;
             // 
+            // lblProTotal
+            // 
+            lblProTotal.AutoSize = true;
+            lblProTotal.Location = new Point(79, 272);
+            lblProTotal.Name = "lblProTotal";
+            lblProTotal.Size = new Size(38, 15);
+            lblProTotal.TabIndex = 9;
+            lblProTotal.Text = "label2";
+            // 
+            // lblConTotal
+            // 
+            lblConTotal.AutoSize = true;
+            lblConTotal.Location = new Point(708, 274);
+            lblConTotal.Name = "lblConTotal";
+            lblConTotal.Size = new Size(38, 15);
+            lblConTotal.TabIndex = 10;
+            lblConTotal.Text = "label2";
+            // 
             // Details
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblConTotal);
+            Controls.Add(lblProTotal);
             Controls.Add(txtName);
             Controls.Add(label1);
             Controls.Add(tblCons);
@@ -160,5 +182,7 @@
         private TableLayoutPanel tblCons;
         private Label label1;
         private TextBox txtName;
+        private Label lblProTotal;
+        private Label lblConTotal;
     }
 }

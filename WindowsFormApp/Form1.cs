@@ -24,6 +24,7 @@ namespace WindowsFormApp
         {
             tblResults.RowStyles.Add(new RowStyle() { SizeType = SizeType.AutoSize });
             tblResults.Controls.Add(new Label() { Text = "Factor 1" });
+            tblResults.Controls.Add(new Label() { Text = DateTime.Now.ToString() });
             Button btnEdit = new Button() { Text = "Edit" };
             btnEdit.Click += delegate
             {

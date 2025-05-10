@@ -85,23 +85,15 @@
             // tblResults
             // 
             tblResults.AutoScroll = true;
-            tblResults.ColumnCount = 3;
-            tblResults.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            tblResults.ColumnCount = 4;
+            tblResults.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            tblResults.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tblResults.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tblResults.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tblResults.Location = new Point(59, 121);
             tblResults.Name = "tblResults";
             tblResults.RowCount = 1;
             tblResults.RowStyles.Add(new RowStyle());
-            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tblResults.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tblResults.Size = new Size(704, 201);
             tblResults.TabIndex = 6;
             // 
