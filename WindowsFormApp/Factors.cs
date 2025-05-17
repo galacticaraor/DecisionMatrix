@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using System.Xml.Linq;
 
 namespace WindowsFormApp
 {
@@ -31,6 +33,13 @@ namespace WindowsFormApp
         public Factors()
         {
             InitializeComponent();
+        }
+
+        public void LoadForm(string name, int weight)
+        {
+            //Bind the weight and name to the controls
+            txtName.Text = name;
+            cmbWeight.SelectedIndex = cmbWeight.FindString(weight.ToString());
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

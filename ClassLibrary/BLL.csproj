@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DecisionMatrix.cs" />
+    <Compile Include="DecisionMatrixManager.cs" />
     <Compile Include="Factor.cs" />
     <Compile Include="FileResult.cs" />
     <Compile Include="IStorage.cs" />

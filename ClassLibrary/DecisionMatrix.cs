@@ -19,6 +19,18 @@ namespace ClassLibrary
         public int ProWeight { get; internal set; }
         public int ConWeight { get; internal set; }
 
+        public DecisionMatrix()
+        {
+            UUID = Guid.NewGuid().ToString();
+            Name = "";
+            DateCreated = DateTime.Now;
+            DateUpdated = DateTime.Now;
+            Pros = new List<Factor>();
+            Cons = new List<Factor>();
+            ProWeight = 0;
+            ConWeight = 0;
+        }
+
         public void AddPro(Factor factor)
         {
             //Add to the list of pros
@@ -59,10 +71,10 @@ namespace ClassLibrary
             RecalculateProsCons();
         }
 
-        public void DeleteCon(Factor factor)
+        public void DeleteCon(string uuid)
         {
             //Delete the con from the list of cons
-            Factor f = Cons.Find(x => x.UUID == factor.UUID);
+            Factor f = Cons.Find(x => x.UUID == uuid);
             Cons.Remove(f);
             RecalculateProsCons();
         }

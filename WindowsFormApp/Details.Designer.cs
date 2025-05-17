@@ -38,6 +38,8 @@
             txtName = new TextBox();
             lblProTotal = new Label();
             lblConTotal = new Label();
+            label2 = new Label();
+            lblDateUpdated = new Label();
             SuspendLayout();
             // 
             // btnAddPro
@@ -152,11 +154,31 @@
             lblConTotal.TabIndex = 10;
             lblConTotal.Text = "label2";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(430, 26);
+            label2.Name = "label2";
+            label2.Size = new Size(79, 15);
+            label2.TabIndex = 11;
+            label2.Text = "Last Updated:";
+            // 
+            // lblDateUpdated
+            // 
+            lblDateUpdated.AutoSize = true;
+            lblDateUpdated.Location = new Point(528, 26);
+            lblDateUpdated.Name = "lblDateUpdated";
+            lblDateUpdated.Size = new Size(38, 15);
+            lblDateUpdated.TabIndex = 12;
+            lblDateUpdated.Text = "label3";
+            // 
             // Details
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblDateUpdated);
+            Controls.Add(label2);
             Controls.Add(lblConTotal);
             Controls.Add(lblProTotal);
             Controls.Add(txtName);
@@ -184,5 +206,7 @@
         private TextBox txtName;
         private Label lblProTotal;
         private Label lblConTotal;
+        private Label label2;
+        private Label lblDateUpdated;
     }
 }
