@@ -22,5 +22,18 @@ namespace ClassLibrary.Tests
             //Assert
             Assert.AreEqual(3, dm.ProWeight);
         }
+
+        [TestMethod()]
+        public void EditPro_Nominal_Edited()
+        {
+            //Arrange
+            DecisionMatrix dm = new DecisionMatrix();
+            dm.Pros.Add(new Factor("1", "Name1", 1));
+            dm.Pros.Add(new Factor("2", "Name1", 2));
+            //Act
+            dm.EditPro(new Factor("1", "Name1", 3));
+            //Assert
+            Assert.AreEqual(5, dm.ProWeight);
+        }
     }
 }
