@@ -12,17 +12,30 @@ namespace DAL
     public class JsonStorage: IStorage
     {
         public string Path { get; set; }
+        public JsonStorage(string path)
+        {
+            Path = path;
+        }
+
         public List<DecisionMatrix> LoadDecisionMatrixes()
         {
-            string json = "";
-            //Read the file from the file system
-            using (TextReader reader = File.OpenText(Path))
+            //If the path exists then
+            if (File.Exists(Path))
             {
-                json = reader.ReadToEnd();
+                string json = "";
+                //Read the file from the file system
+                using (TextReader reader = File.OpenText(Path))
+                {
+                    json = reader.ReadToEnd();
+                }
+                //Deserialize the JSON
+                List<DecisionMatrix> decisionMatrixes = JsonConvert.DeserializeObject<List<DecisionMatrix>>(json);
+                return decisionMatrixes;
             }
-            //Deserialize the JSON
-            List<DecisionMatrix> decisionMatrixes=JsonConvert.DeserializeObject<List<DecisionMatrix>>(json);
-            return decisionMatrixes;
+            else
+            {
+                return new List<DecisionMatrix>();
+            }
         }
 
         public FileResult SaveDecisionMatrixes(List<DecisionMatrix> decisionMatrixes)

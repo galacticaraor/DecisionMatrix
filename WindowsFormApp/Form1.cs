@@ -45,7 +45,7 @@ namespace WindowsFormApp
             //If the user clicked yes then
             if (confirmResult == DialogResult.Yes)
             {
-                DecisionMatrixManager manager = new DecisionMatrixManager(new JsonStorage());
+                DecisionMatrixManager manager = new DecisionMatrixManager(new JsonStorage(AppDomain.CurrentDomain.BaseDirectory + "\\DecisionMatrixes.json"));
                 FileResult fileResult = manager.Delete(uuid);
                 if (fileResult.Successful)
                 {
@@ -65,7 +65,7 @@ namespace WindowsFormApp
 
         private void Search(string keyword)
         {
-            DecisionMatrixManager manager = new DecisionMatrixManager(new JsonStorage());
+            DecisionMatrixManager manager = new DecisionMatrixManager(new JsonStorage(AppDomain.CurrentDomain.BaseDirectory + "\\DecisionMatrixes.json"));
             List<DecisionMatrix> decisionMatrixes = manager.Search(keyword);
             //Clear the table
             tblResults.RowStyles.Clear();

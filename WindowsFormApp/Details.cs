@@ -34,11 +34,16 @@ namespace WindowsFormApp
             {
                 _add = true;
             }
-            DecisionMatrixManager manager = new DecisionMatrixManager(new JsonStorage());
+            DecisionMatrixManager manager = new DecisionMatrixManager(new JsonStorage(AppDomain.CurrentDomain.BaseDirectory + "\\DecisionMatrixes.json"));
             _decisionMatrix = manager.Get(uuid);
             //Bind the name and date updated to the controls
             txtName.Text = _decisionMatrix.Name;
             lblDateUpdated.Text = _decisionMatrix.DateUpdated.ToString();
+            LoadFactors();
+        }
+
+        private void LoadFactors()
+        {
             //Loop through the pros
             foreach (Factor f in _decisionMatrix.Pros)
             {
@@ -88,8 +93,8 @@ namespace WindowsFormApp
             //If the user clicked OK then
             if (dialogResult == DialogResult.OK)
             {
-                _decisionMatrix.AddPro(new Factor() { Name = factors.Name, Weight = factors.Weight });
-                LoadForm(_decisionMatrix.UUID);
+                _decisionMatrix.AddPro(new Factor() { Name = factors.FactorName, Weight = factors.Weight });
+                LoadFactors();
             }
         }
 
@@ -103,14 +108,14 @@ namespace WindowsFormApp
             if (dialogResult == DialogResult.OK)
             {
                 _decisionMatrix.EditPro(new Factor(uuid, name, weight));
-                LoadForm(_decisionMatrix.UUID);
+                LoadFactors();
             }
         }
 
         private void btnDeletePro_Click(string uuid)
         {
             _decisionMatrix.DeletePro(uuid);
-            LoadForm(_decisionMatrix.UUID);
+            LoadFactors();
         }
 
         private void btnAddCon_Click(object sender, EventArgs e)
@@ -123,7 +128,7 @@ namespace WindowsFormApp
             if (dialogResult == DialogResult.OK)
             {
                 _decisionMatrix.AddCon(new Factor() { Name = factors.Name, Weight = factors.Weight });
-                LoadForm(_decisionMatrix.UUID);
+                LoadFactors();
             }
         }
 
@@ -137,14 +142,14 @@ namespace WindowsFormApp
             if (dialogResult == DialogResult.OK)
             {
                 _decisionMatrix.EditCon(new Factor(uuid, name, weight));
-                LoadForm(_decisionMatrix.UUID);
+                LoadFactors();
             }
         }
 
         private void btnDeleteCon_Click(string uuid)
         {
             _decisionMatrix.DeleteCon(uuid);
-            LoadForm(_decisionMatrix.UUID);
+            LoadFactors();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -159,7 +164,7 @@ namespace WindowsFormApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DecisionMatrixManager manager = new DecisionMatrixManager(new JsonStorage());
+            DecisionMatrixManager manager = new DecisionMatrixManager(new JsonStorage(AppDomain.CurrentDomain.BaseDirectory + "\\DecisionMatrixes.json"));
             _decisionMatrix.Name = txtName.Text;
             _decisionMatrix.DateUpdated = DateTime.Now;
             FileResult fileResult = new FileResult(true, "");
