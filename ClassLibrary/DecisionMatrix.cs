@@ -31,6 +31,18 @@ namespace ClassLibrary
             ConWeight = 0;
         }
 
+        public DecisionMatrix(string uuid)
+        {
+            UUID = uuid;
+            Name = "";
+            DateCreated = DateTime.Now;
+            DateUpdated = DateTime.Now;
+            Pros = new List<Factor>();
+            Cons = new List<Factor>();
+            ProWeight = 0;
+            ConWeight = 0;
+        }
+
         public void AddPro(Factor factor)
         {
             //Add to the list of pros
