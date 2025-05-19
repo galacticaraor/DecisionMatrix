@@ -5,18 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ClassLibrary
 {
     public class DecisionMatrix
     {
+        [JsonProperty]
         public string UUID { get; internal set; }
         public string Name { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateUpdated { get; set; }
         public List<Factor> Pros { get; set; }
         public List<Factor> Cons { get; set; }
+        [JsonProperty]
         public int ProWeight { get; internal set; }
+        [JsonProperty]
         public int ConWeight { get; internal set; }
 
         public DecisionMatrix()

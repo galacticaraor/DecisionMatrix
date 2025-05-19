@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,6 +45,8 @@ namespace WindowsFormApp
 
         private void LoadFactors()
         {
+            //Clear the pros table
+            tblPros.Controls.Clear();
             //Loop through the pros
             foreach (Factor f in _decisionMatrix.Pros)
             {
@@ -63,6 +66,8 @@ namespace WindowsFormApp
                 };
                 tblPros.Controls.Add(btnDelete);
             }
+            //Clear the cons table
+            tblCons.Controls.Clear();
             //Loop through the cons
             foreach (Factor f in _decisionMatrix.Cons)
             {
@@ -82,6 +87,9 @@ namespace WindowsFormApp
                 };
                 tblCons.Controls.Add(btnDelete);
             }
+            //Update the pros and cons total labels
+            lblProTotal.Text = _decisionMatrix.ProWeight.ToString();
+            lblConTotal.Text = _decisionMatrix.ConWeight.ToString();
         }
 
         private void btnAddPro_Click(object sender, EventArgs e)
@@ -127,7 +135,7 @@ namespace WindowsFormApp
             //If the user clicked OK then
             if (dialogResult == DialogResult.OK)
             {
-                _decisionMatrix.AddCon(new Factor() { Name = factors.Name, Weight = factors.Weight });
+                _decisionMatrix.AddCon(new Factor() { Name = factors.FactorName, Weight = factors.Weight });
                 LoadFactors();
             }
         }
@@ -164,24 +172,32 @@ namespace WindowsFormApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DecisionMatrixManager manager = new DecisionMatrixManager(new JsonStorage(AppDomain.CurrentDomain.BaseDirectory + "\\DecisionMatrixes.json"));
-            _decisionMatrix.Name = txtName.Text;
-            _decisionMatrix.DateUpdated = DateTime.Now;
-            FileResult fileResult = new FileResult(true, "");
-            //If the user is adding a matrix then
-            if (_add)
+            string name = txtName.Text;
+            if (!string.IsNullOrEmpty(name))
             {
-                fileResult = manager.Add(_decisionMatrix);
+                DecisionMatrixManager manager = new DecisionMatrixManager(new JsonStorage(AppDomain.CurrentDomain.BaseDirectory + "\\DecisionMatrixes.json"));
+                _decisionMatrix.Name = name;
+                _decisionMatrix.DateUpdated = DateTime.Now;
+                FileResult fileResult = new FileResult(true, "");
+                //If the user is adding a matrix then
+                if (_add)
+                {
+                    fileResult = manager.Add(_decisionMatrix);
+                }
+                else
+                {
+                    fileResult = manager.Edit(_decisionMatrix);
+                }
+                if (!fileResult.Successful)
+                {
+                    MessageBox.Show("An error occurred: " + fileResult.Error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                this.Close();
             }
             else
             {
-                fileResult = manager.Edit(_decisionMatrix);
+                MessageBox.Show("Name is required", "Name is required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if (!fileResult.Successful)
-            {
-                MessageBox.Show("An error occurred: " + fileResult.Error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.Close();
         }
     }
 }
