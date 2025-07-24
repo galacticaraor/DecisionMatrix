@@ -115,7 +115,7 @@ namespace WindowsFormApp
             //If the user clicked OK then
             if (dialogResult == DialogResult.OK)
             {
-                _decisionMatrix.EditPro(new Factor(uuid, name, weight));
+                _decisionMatrix.EditPro(new Factor(uuid, factors.FactorName, factors.Weight));
                 LoadFactors();
             }
         }
@@ -149,7 +149,7 @@ namespace WindowsFormApp
             //If the user clicked OK then
             if (dialogResult == DialogResult.OK)
             {
-                _decisionMatrix.EditCon(new Factor(uuid, name, weight));
+                _decisionMatrix.EditCon(new Factor(uuid, factors.FactorName, factors.Weight));
                 LoadFactors();
             }
         }
